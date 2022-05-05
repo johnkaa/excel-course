@@ -1,5 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -32,6 +33,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new NodePolyfillPlugin(),
     new HtmlWebpackPlugin({
       template: "index.html",
       minify: {
