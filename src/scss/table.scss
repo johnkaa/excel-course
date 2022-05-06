@@ -22,9 +22,15 @@
     border: 1px solid $border-color;
     border-top: none;
     background-color: #f8f9fa;
+    position: relative;
   }
   .row-data {
     display: flex;
+  }
+  .row-resize {
+    left: 0;
+    height: 4px;
+    cursor: row-resize;
   }
   .column {
     display: flex;
@@ -36,6 +42,12 @@
     border-right: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
     height: 100%;
+    position: relative;
+  }
+  .col-resize {
+    top: 0;
+    width: 4px;
+    cursor: col-resize;
   }
   .cell {
     min-width: 40px;
@@ -49,8 +61,19 @@
     outline: none;
     &.selected {
       border: none;
-      outline: 2px solid #3c74ff;
+      outline: 2px solid $primary-color;
       z-index: 2;
+    }
+  }
+  .col-resize, .row-resize {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: $primary-color;
+    opacity: 0;
+    z-index: 1000;
+    &:hover {
+      opacity: 1 !important;
     }
   }
 }
